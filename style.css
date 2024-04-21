@@ -1,0 +1,111 @@
+#gamefield {
+	border: 1px solid black;
+	width: fit-content;
+	display: grid;
+}
+
+#background {
+	grid-area: 1/1;
+	display: grid;
+	grid-template-columns: repeat(var(--GRID_COLS), max-content);
+}
+
+#background .tile{
+	width: var(--TILE_SIZE);
+	height: var(--TILE_SIZE);
+	background-repeat: no-repeat;
+	background-size: cover;
+	image-rendering: pixelated;
+}
+
+.tile.grass{
+background-image: url("images/tiles/grass.png");
+}
+
+.tile.path{
+	background-image: url('images/tiles/path.png');
+}
+
+.tile.water{
+	background-image: url('images/tiles/water.png');
+}
+
+.tile.blocked {
+	background-color: #666;
+}
+
+.wooden_floor {
+	width: 32 px;
+	height: 32px;
+	background-image: url('images/items/tiles/floor_wood.png');
+	background-size: cover;
+}
+
+#items {
+	grid-area: 1/1;
+}
+
+#characters {
+	grid-area: 1/1;
+}
+
+#player {
+	width: 42px;
+	aspect-ratio: 16/20;
+	background-size: 400% 400%;
+	background-image: url("Characters/Character 5.png");
+	image-rendering: pixelated;
+}
+
+#player.animate {
+	animation-duration: 0.7s;
+	animation-iteration-count: infinite;
+	animation-timing-function: steps(4);
+}
+#player.down {
+	animation-name: down;
+}
+#player.up {
+	animation-name: up;
+}
+#player.left {
+	animation-name: left;
+}
+#player.right {
+	animation-name: right;
+}
+@keyframes down {
+	from {
+		background-position: 0% 0%;
+	}
+	to {
+		background-position: -400% 0%;
+	}
+}
+
+@keyframes up {
+	from {
+		background-position: 0% -100%;
+	}
+	to {
+		background-position: -400% -100%;
+	}
+}
+
+@keyframes left {
+	from {
+		background-position: 0% -200%;
+	}
+	to {
+		background-position: -400% -200%;
+	}
+}
+
+@keyframes right {
+	from {
+		background-position: 0% -300%;
+	}
+	to {
+		background-position: -400% -300%;
+	}
+}
